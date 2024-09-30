@@ -1,9 +1,5 @@
-const express = require("express");
-const sellerRouter = express.Router();
-const sellerController = require("../controllers/sellerController");
-const uploadOptions = require("../middleware/uploadMiddleware"); // multer config
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/ProductController');
 
-// Route for adding products (with images)
-sellerRouter.post('/seller-addProduct', uploadOptions.array("images",10), sellerController.addProduct);
-
-module.exports = sellerRouter;
+router.post('/seller-addProduct', upload, productController.addProduct); // Here, `upload` is the multer middleware
